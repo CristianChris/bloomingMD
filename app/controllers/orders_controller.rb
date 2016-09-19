@@ -1,6 +1,15 @@
 class OrdersController < ApplicationController
+	
+	def index
+		@orders = Order.all
+	end
+
 	def new
 		@order = Order.new
+	end
+
+	def edit
+		@order = Order.find(params[:id])
 	end
 
 	def create
@@ -12,6 +21,17 @@ class OrdersController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def update
+		@order = Order.find(params[:id])
+		if @order.update(order_params)
+			flash[:notice] = "Comanda a fost actualizată cu succes"
+			redirect_to order_path(@order)
+		else
+			render 'edit'
+		end
+			
 	end
 
 	def show

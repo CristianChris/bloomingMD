@@ -11,3 +11,6 @@
 <p>
 	Data livrării: <%= @order.delivery_date %>
 </p>
+
+<%= link_to "Editează această comandă", edit_order_path(@order) %> |
+<%= link_to "Treci la lista de comenzi", orders_path %>
