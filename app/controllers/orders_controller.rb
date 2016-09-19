@@ -38,6 +38,13 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 	end
 
+	def destroy
+		@order = Order.find(params[:id])
+		@order.destroy
+		flash[:notice] = 'Comanda a fost ștearsă cu succes'
+		redirect_to orders_path
+	end
+
 	private
 	def order_params
 		params.require(:order).permit(:greeting, :special_request, :delivery_date)

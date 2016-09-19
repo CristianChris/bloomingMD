@@ -1,29 +1,3 @@
-<h1>Create new Order</h1>
-<% if @order.errors.any? %>
-	<h3>Următoarele erori au înpedicat comanda de a se salva</h3>
-	<ul>
-		<% @order.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li> 
-		<% end %>
-	</ul>
-<% end %>
+<h1>Crează o comandă nouă</h1>
 
-<%= form_for @order do |f| %>
-	<p>
-		<%= f.label :Cartela_de_felicitare%> <br/>
-		<%= f.text_area :greeting %>
-	</p>
-	<p>
-		<%= f.label :Detalii_de_livrare %> <br/>
-		<%= f.text_area :special_request %>
-	</p>
-	<p>
-		<%= f.label :Data_livrării %> <br/>
-		<%= f.text_field :delivery_date %>
-	</p>
-	<p>
-		<%= f.submit :Înregistrează  %> <br/>
-	</p>
-<% end %>
-
-<%= link_to "Treci la lista de comenzi", orders_path %>
+<%=  render 'form' %>

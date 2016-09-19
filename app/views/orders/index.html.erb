@@ -11,11 +11,12 @@
 	</tr>
 	<% @orders.each do |order| %>
 	<tr>
-		<td> <%= order.greeting %> </td>
-		<td> <%= order.special_request %> </td>
-		<td> <%= order.delivery_date %> </td>
+		<td><%= order.greeting %></td>
+		<td><%= order.special_request %></td>
+		<td><%= order.delivery_date %></td>
 		<td><%= link_to "Editează", edit_order_path(order) %></td> 
-		<td><%= link_to "Vizualizează", order_path(order) %></t d>
+		<td><%= link_to "Vizualizează", order_path(order) %></td> 
+		<td><%= link_to "Șterge", order_path(order), method: :delete, data: {confirm: "Sunteți siguri?"} %></td>
 	</tr>
 	<% end %>
 </table>
