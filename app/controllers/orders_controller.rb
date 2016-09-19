@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-	
+	before_action :set_order, only: [:edit, :update, :show, :destroy]
+
 	def index
 		@orders = Order.all
 	end
@@ -9,7 +10,7 @@ class OrdersController < ApplicationController
 	end
 
 	def edit
-		@order = Order.find(params[:id])
+		
 	end
 
 	def create
@@ -24,7 +25,6 @@ class OrdersController < ApplicationController
 	end
 
 	def update
-		@order = Order.find(params[:id])
 		if @order.update(order_params)
 			flash[:notice] = "Comanda a fost actualizată cu succes"
 			redirect_to order_path(@order)
@@ -35,17 +35,20 @@ class OrdersController < ApplicationController
 	end
 
 	def show
-		@order = Order.find(params[:id])
+
 	end
 
 	def destroy
-		@order = Order.find(params[:id])
 		@order.destroy
 		flash[:notice] = 'Comanda a fost ștearsă cu succes'
 		redirect_to orders_path
 	end
 
 	private
+	def set_order
+		@order = Order.find(params[:id])
+	end
+
 	def order_params
 		params.require(:order).permit(:greeting, :special_request, :delivery_date)
 	end
