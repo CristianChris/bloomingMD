@@ -1,4 +1,12 @@
 <h1>Create new Order</h1>
+<% if @order.errors.any? %>
+	<h3>Următoarele erori au înpedicat comanda de a se salva</h3>
+	<ul>
+		<% @order.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li> 
+		<% end %>
+	</ul>
+<% end %>
 
 <%= form_for @order do |f| %>
 	<p>

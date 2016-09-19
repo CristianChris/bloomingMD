@@ -4,10 +4,18 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		render plain: params[:order].inspect
+		# render plain: params[:order].inspect
 		@order = Order.new(order_params)
-		@order.save
-		redirect_to orders_show(@order)
+		if @order.save
+			flash[:notice] = "Comanda a fost creată cu succes"
+			redirect_to order_path(@order)
+		else
+			render 'new'
+		end
+	end
+
+	def show
+		@order = Order.find(params[:id])
 	end
 
 	private
