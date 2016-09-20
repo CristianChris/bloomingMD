@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     min-height: 100%;
-    text-align: center;
+    // text-align: center;
     background-image: asset-data-url("order_cover.jpg");
     background-position: center;
     background-attachment: fixed;
@@ -15,7 +15,7 @@
 }
 
 .table-orders {
-  tr:hover {background-color: #f05f40}
+  tr:hover {background-color: #ff8533}
 }
 
 table {

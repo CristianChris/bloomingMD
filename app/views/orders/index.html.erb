@@ -5,9 +5,11 @@
 			<div class="container">
 				<br>
 				<br>
-				<h1>Lista de comenzi</h1>
-				<p>
-					<%= link_to "Crează o comandă nouă", new_order_path %>
+				<h1 style="text-align:center">Lista de comenzi</h1>
+    		<%= render 'layouts/messages' %>
+
+				<p style="text-align:center"> 
+					<%= link_to "Crează o comandă nouă", new_order_path , class: "fa fa-plus-square-o" %>
 				</p>
 				<table class="table table-orders" >
 					<tr>
@@ -24,10 +26,9 @@
 						<td><%= order.special_request %></td>
 						<td><%= order.greeting %></td>
 						<td>
-							<%= link_to "", edit_order_path(order), class: "btn btn-warning fa fa-2x fa-pencil-square-o " %>
-							<%= link_to "", order_path(order), class: "btn btn-success fa fa-2x fa-eye" %>
-
-							<%= link_to "", order_path(order), class: "btn btn-danger fa fa-2x fa-trash-o", method: :delete, data: {confirm: "Sunteți siguri?"} %>
+							<%= link_to "", edit_order_path(order), class: "fa fa-2x fa-pencil-square-o " %> | 
+							<%= link_to "", order_path(order), class: "fa fa-2x fa-eye" %> | 
+							<%= link_to "", order_path(order), class: "fa fa-2x fa-trash-o", method: :delete, data: {confirm: "Sunteți siguri?"} %>
 							</i>
 						</td>
 					</tr>

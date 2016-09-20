@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
 		# render plain: params[:order].inspect
 		@order = Order.new(order_params)
 		if @order.save
-			flash[:notice] = "Comanda a fost creată cu succes"
+			flash[:success] = "Comanda a fost creată cu succes"
 			redirect_to order_path(@order)
 		else
 			render 'new'
@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
 
 	def update
 		if @order.update(order_params)
-			flash[:notice] = "Comanda a fost actualizată cu succes"
+			flash[:success] = "Comanda a fost actualizată cu succes"
 			redirect_to order_path(@order)
 		else
 			render 'edit'
@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
 
 	def destroy
 		@order.destroy
-		flash[:notice] = 'Comanda a fost ștearsă cu succes'
+		flash[:danger] = 'Comanda a fost ștearsă cu succes'
 		redirect_to orders_path
 	end
 
