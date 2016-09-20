@@ -4,21 +4,32 @@
 	<div class="container">
 		<br>
 		<br>
-		<h1>Comanda creată</h1>
-
-		<p>
-			Cartela de felicitare: <%= @order.greeting %>
-		</p>
-
-		<p>
-			Detalii de livrare: <%= @order.special_request %>
-		</p>
-
-		<p>
-			Data livrării: <%= @order.delivery_date %>
-		</p>
-
-		<%= link_to "Editează această comandă", edit_order_path(@order) %> |
-		<%= link_to "Treci la lista de comenzi", orders_path %>
+		<h1>Comanda : <%= @order.id  %></h1>
+		<div class="container col-md-6 col-md-offset-3">
+			<table class="table table-orders">
+	      <tr>
+	        <td>Mesajul de felicitare:</td>
+	        <td><%= @order.greeting  %></td>
+	      </tr>
+	      <tr>
+	        <td>Detalii de livrare</td>
+	        <td><%= @order.special_request %></td>
+	      </tr>
+	      <tr>
+	        <td>Data livrării</td>
+	        <td><%= @order.delivery_date %></td>
+	      </tr>
+	      <tr>
+	      	<td>Data comenzii</td>
+	      	<td><%= @order.created_at  %></td>
+	      </tr>
+	      <tr>
+	      	<td>Data modificarii comenzii</td>
+	      	<td><%= @order.updated_at  %></td>
+	      </tr>
+	    </table>
+	    <%= link_to "Editează această comandă", edit_order_path(@order) %> |
+			<%= link_to "Treci la lista de comenzi", orders_path %>
+    </div>
 	</div>
 </div>
