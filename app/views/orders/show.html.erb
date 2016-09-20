@@ -1,16 +1,24 @@
-<h1>Comanda creată</h1>
+<%= render 'navbar' %>
 
-<p>
-	Cartela de felicitare: <%= @order.greeting %>
-</p>
+<div class="order">
+	<div class="container">
+		<br>
+		<br>
+		<h1>Comanda creată</h1>
 
-<p>
-	Detalii de livrare: <%= @order.special_request %>
-</p>
+		<p>
+			Cartela de felicitare: <%= @order.greeting %>
+		</p>
 
-<p>
-	Data livrării: <%= @order.delivery_date %>
-</p>
+		<p>
+			Detalii de livrare: <%= @order.special_request %>
+		</p>
 
-<%= link_to "Editează această comandă", edit_order_path(@order) %> |
-<%= link_to "Treci la lista de comenzi", orders_path %>
+		<p>
+			Data livrării: <%= @order.delivery_date %>
+		</p>
+
+		<%= link_to "Editează această comandă", edit_order_path(@order) %> |
+		<%= link_to "Treci la lista de comenzi", orders_path %>
+	</div>
+</div>

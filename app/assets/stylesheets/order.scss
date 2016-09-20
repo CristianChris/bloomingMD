@@ -1,0 +1,26 @@
+.order {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    text-align: center;
+    background-image: asset-data-url("order_cover.jpg");
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 750px;
+}
+
+.table-orders {
+  tr:hover {background-color: #f5f5f5}
+}
+
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+th {
+    text-align: center;
+}
