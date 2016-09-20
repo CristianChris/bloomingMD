@@ -21,13 +21,12 @@
 					</tr>
 					<% @orders.each do |order| %>
 					<tr>
-						<td><%= order.created_at  %></td>
-						<td><%= order.delivery_date %></td>
-						<td><%= order.special_request %></td>
-						<td><%= order.greeting %></td>
+						<td class='clickable-row' data-href="<%= order_path(order) %>"><%= order.created_at  %></td>
+						<td class='clickable-row' data-href="<%= order_path(order) %>"><%= order.delivery_date %></td>
+						<td class='clickable-row' data-href="<%= order_path(order) %>"><%= order.special_request %></td>
+						<td class='clickable-row' data-href="<%= order_path(order) %>"><%= order.greeting %></td>
 						<td>
-							<%= link_to "", edit_order_path(order), class: "fa fa-2x fa-pencil-square-o " %> | 
-							<%= link_to "", order_path(order), class: "fa fa-2x fa-eye" %> | 
+							<%= link_to "", edit_order_path(order), class: "fa fa-2x fa-pencil-square-o " %> |  
 							<%= link_to "", order_path(order), class: "fa fa-2x fa-trash-o", method: :delete, data: {confirm: "Sunteți siguri?"} %>
 							</i>
 						</td>
@@ -36,5 +35,13 @@
 				</table>
 			</div>
 </div>
+
+  <script type="text/javascript">
+    $(document).on('turbolinks:load', function() {
+      $(".clickable-row").click(function() {
+        window.document.location = $(this).data("href");
+      });
+    });
+  </script>
 
 
