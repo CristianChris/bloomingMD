@@ -1,0 +1,58 @@
+.order {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    // text-align: center;
+    background-image: asset-data-url("order_cover.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    // height: 750px;
+    // background-repeat: no-repeat;
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+
+
+.table-orders {
+  tr:hover {background-color: #ff8533}
+}
+
+table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+th {
+    text-align: center;
+}
+
+footer {
+    padding-top: 5px;
+    border-top: 1px solid #eaeaea;
+    color: #777;
+}
+
+footer a:hover {
+    color: #f05f40;
+}
+
+footer small{
+    float: left;
+}
+
+footer ul {
+    float: right;
+    list-style: none;
+}
+
+footer ul li {
+    float: left;
+    margin-left: 15px;
+}
+

@@ -1,0 +1,40 @@
+<%= render 'navbar' %>
+
+<div class="order">
+	<div class="container">
+		<br>
+		<br>
+		<h1 style="text-align:center">Comanda : <%= @order.id  %></h1>
+		<%= render 'layouts/messages' %>
+		<div class="container col-md-6 col-md-offset-3">
+			<table class="table table-orders">
+	      <tr>
+	        <td>Mesajul de felicitare:</td>
+	        <td><%= @order.greeting  %></td>
+	      </tr>
+	      <tr>
+	        <td>Detalii de livrare</td>
+	        <td><%= @order.special_request %></td>
+	      </tr>
+	      <tr>
+	        <td>Data livrării</td>
+	        <td><%= @order.delivery_date %></td>
+	      </tr>
+	      <tr>
+	      	<td>Data comenzii</td>
+	      	<td><%= @order.created_at  %></td>
+	      </tr>
+	      <tr>
+	      	<td>Data modificarii comenzii</td>
+	      	<td><%= @order.updated_at  %></td>
+	      </tr>
+	    </table>
+	    	
+	    <div class="col-xs-5 col-xs-offset-4">
+		    <%= link_to "", edit_order_path(@order), class: "fa fa-2x fa-pencil-square-o " %> | 
+		    <%= link_to "", order_path(@order), class: "fa fa-2x fa-trash-o", method: :delete, data: {confirm: "Sunteți siguri?"} %> |
+		    <%= link_to "", orders_path(@order), class: "fa fa-2x fa-list-ul  " %> 
+		   </div>
+    </div>
+	</div>
+</div>

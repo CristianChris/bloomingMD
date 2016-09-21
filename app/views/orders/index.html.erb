@@ -1,0 +1,47 @@
+<%= render 'navbar' %>
+
+
+<div class="order">
+			<div class="container">
+				<br>
+				<br>
+				<h1 style="text-align:center">Lista de comenzi</h1>
+    		<%= render 'layouts/messages' %>
+
+				<p style="text-align:center"> 
+					<%= link_to "Crează o comandă nouă", new_order_path , class: "fa fa-plus-square-o" %>
+				</p>
+				<table class="table table-orders" >
+					<tr>
+						<th >Data comenzii</th>
+						<th >Data livrării</th>
+						<th >Detalii de livrare</th>
+						<th >Mesajul de felicitare</th>
+						<th ></th>
+					</tr>
+					<% @orders.each do |order| %>
+					<tr>
+						<td class='clickable-row' data-href="<%= order_path(order) %>"><%= order.created_at  %></td>
+						<td class='clickable-row' data-href="<%= order_path(order) %>"><%= order.delivery_date %></td>
+						<td class='clickable-row' data-href="<%= order_path(order) %>"><%= order.special_request %></td>
+						<td class='clickable-row' data-href="<%= order_path(order) %>"><%= order.greeting %></td>
+						<td>
+							<%= link_to "", edit_order_path(order), class: "fa fa-2x fa-pencil-square-o " %> |  
+							<%= link_to "", order_path(order), class: "fa fa-2x fa-trash-o", method: :delete, data: {confirm: "Sunteți siguri?"} %>
+							</i>
+						</td>
+					</tr>
+					<% end %>
+				</table>
+			</div>
+</div>
+
+  <script type="text/javascript">
+    $(document).on('turbolinks:load', function() {
+      $(".clickable-row").click(function() {
+        window.document.location = $(this).data("href");
+      });
+    });
+  </script>
+
+
