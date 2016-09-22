@@ -28,11 +28,14 @@
 	      	<td><%= @order.updated_at  %></td>
 	      </tr>
 	    </table>
-	    	
+	    
 	    <div class="col-xs-5 col-xs-offset-4">
-		    <%= link_to "", edit_order_path(@order), class: "fa fa-2x fa-pencil-square-o " %> | 
-		    <%= link_to "", order_path(@order), class: "fa fa-2x fa-trash-o", method: :delete, data: {confirm: "Sunteți siguri?"} %> |
-		    <%= link_to "", orders_path(@order), class: "fa fa-2x fa-list-ul  " %> 
+		    <%= link_to "", edit_order_path(@order), class: "fa fa-2x fa-pencil-square-o " %> 
+		    <% if user_signed_in? %>
+			    | 
+			    <%= link_to "", order_path(@order), class: "fa fa-2x fa-trash-o", method: :delete, data: {confirm: "Sunteți siguri?"} %> |
+			    <%= link_to "", orders_path(@order), class: "fa fa-2x fa-list-ul  " %> 
+			  <% end %>
 		   </div>
     </div>
 	</div>
