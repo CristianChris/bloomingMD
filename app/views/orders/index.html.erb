@@ -1,12 +1,15 @@
 <%= render 'navbar' %>
 
-
 <div class="order">
 			<div class="container">
 				<br>
 				<br>
 				<h1 style="text-align:center">Lista de comenzi</h1>
     		<%= render 'layouts/messages' %>
+
+    <% if user_signed_in? %>
+    <p style="color:#C2391C"> Salut, <%=  current_user.email %> - <%= link_to "Sign_out", destroy_user_session_path, class: "fa fa-sign-out", :method => 'delete' %> </p>
+    <% end %>
 
 				<p style="text-align:center"> 
 					<%= link_to "Crează o comandă nouă", new_order_path , class: "fa fa-plus-square-o" %>
