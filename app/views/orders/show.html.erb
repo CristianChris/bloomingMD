@@ -4,8 +4,9 @@
 		<br>
 		<br>
 		<% if user_signed_in? %>
+			<h1 style="text-align:center">Comanda : <%= @order.id  %></h1>
+				<p style="color:#C2391C"> <%=  current_user.email %> - <%= link_to "Ieșire", destroy_user_session_path, class: "fa fa-sign-out", :method => 'delete' %> </p>
 			<% if current_user.email == "bloomingmoldova@gmail.com" %>
-				<h1 style="text-align:center">Comanda : <%= @order.id  %></h1>
 				<%= render 'layouts/messages' %>
 				<div class="container col-md-6 col-md-offset-3">
 					<table class="table table-orders">
