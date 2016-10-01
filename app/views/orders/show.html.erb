@@ -3,37 +3,45 @@
 	<div class="container">
 		<br>
 		<br>
-		<h1 style="text-align:center">Comanda : <%= @order.id  %></h1>
-		<%= render 'layouts/messages' %>
-		<div class="container col-md-6 col-md-offset-3">
-			<table class="table table-orders">
-	      <tr>
-	        <td>Mesajul de felicitare:</td>
-	        <td><%= @order.greeting  %></td>
-	      </tr>
-	      <tr>
-	        <td>Detalii de livrare</td>
-	        <td><%= @order.special_request %></td>
-	      </tr>
-	      <tr>
-	        <td>Data livrării</td>
-	        <td><%= @order.delivery_date %></td>
-	      </tr>
-	      <tr>
-	      	<td>Data comenzii</td>
-	      	<td><%= @order.created_at  %></td>
-	      </tr>
-	      <tr>
-	      	<td>Data modificarii comenzii</td>
-	      	<td><%= @order.updated_at  %></td>
-	      </tr>
-	    </table>
-	    	
-	    <div class="col-xs-5 col-xs-offset-4">
-		    <%= link_to "", edit_order_path(@order), class: "fa fa-2x fa-pencil-square-o " %> | 
-		    <%= link_to "", order_path(@order), class: "fa fa-2x fa-trash-o", method: :delete, data: {confirm: "Sunteți siguri?"} %> |
-		    <%= link_to "", orders_path(@order), class: "fa fa-2x fa-list-ul  " %> 
-		   </div>
+		<% if user_signed_in? %>
+			<h1 style="text-align:center">Comanda : <%= @order.id  %></h1>
+				<p style="color:#C2391C"> <%=  current_user.email %> - <%= link_to "Ieșire", destroy_user_session_path, class: "fa fa-sign-out", :method => 'delete' %> </p>
+			<% if current_user.email == "bloomingmoldova@gmail.com" %>
+				<%= render 'layouts/messages' %>
+				<div class="container col-md-6 col-md-offset-3">
+					<table class="table table-orders">
+			      <tr>
+			        <td>Mesajul de felicitare:</td>
+			        <td><%= @order.greeting  %></td>
+			      </tr>
+			      <tr>
+			        <td>Detalii de livrare</td>
+			        <td><%= @order.special_request %></td>
+			      </tr>
+			      <tr>
+			        <td>Data livrării</td>
+			        <td><%= @order.delivery_date %></td>
+			      </tr>
+			      <tr>
+			      	<td>Data comenzii</td>
+			      	<td><%= @order.created_at  %></td>
+			      </tr>
+			      <tr>
+			      	<td>Data modificarii comenzii</td>
+			      	<td><%= @order.updated_at  %></td>
+			      </tr>
+			    </table>
+			    
+			    <div class="col-xs-5 col-xs-offset-4">
+				    <%= link_to "", edit_order_path(@order), class: "fa fa-2x fa-pencil-square-o " %> 
+				    <% if user_signed_in? %>
+					    | 
+					    <%= link_to "", order_path(@order), class: "fa fa-2x fa-trash-o", method: :delete, data: {confirm: "Sunteți siguri?"} %> |
+					    <%= link_to "", orders_path(@order), class: "fa fa-2x fa-list-ul  " %> 
+					  <% end %>
+				   </div>
+					<% end %>
+				<% end %>
     </div>
 	</div>
 </div>

@@ -1,6 +1,5 @@
 <%= render 'navbar' %>
 
-
 <div class="order">
 			<div class="container">
 				<br>
@@ -8,6 +7,9 @@
 				<h1 style="text-align:center">Lista de comenzi</h1>
     		<%= render 'layouts/messages' %>
 
+    <% if user_signed_in? %>
+			<p style="color:#C2391C"> <%=  current_user.email %> - <%= link_to "Ieșire", destroy_user_session_path, class: "fa fa-sign-out", :method => 'delete' %> </p>
+			<% if current_user.email == "bloomingmoldova@gmail.com" %>
 				<p style="text-align:center"> 
 					<%= link_to "Crează o comandă nouă", new_order_path , class: "fa fa-plus-square-o" %>
 				</p>
@@ -33,6 +35,8 @@
 					</tr>
 					<% end %>
 				</table>
+			<% end %>
+		<% end %>
 			</div>
 </div>
 

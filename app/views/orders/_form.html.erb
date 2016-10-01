@@ -38,9 +38,15 @@
 			</div> 
 
 			<% end %>
+
+		<% if user_signed_in? %>
+			<% if current_user.email == "bloomingmoldova@gmail.com" %>
 			<div class="col-xs-8 col-xs-offset-2">
 				[ <%= link_to "Anulează și treci la lista de comenzi", orders_path %> ]
 			</div>
+			<% end %>
+		<% end %>
+
 	</div>
 </div>
 
